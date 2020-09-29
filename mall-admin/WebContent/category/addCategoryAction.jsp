@@ -6,7 +6,7 @@
 	request.setCharacterEncoding("utf-8");
 	String categoryName = request.getParameter("categoryName");
 	Category category = new Category();
-	category.categoryName = categoryName;
+	category.setCategoryName(categoryName);
 
 	CategoryDao categoryDao = new CategoryDao();
 	categoryDao.insertCategory(category);

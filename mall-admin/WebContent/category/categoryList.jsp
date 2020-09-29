@@ -24,7 +24,7 @@
 	
 	<h1>카테고리 리스트</h1>
 	<div>
-		<a href="/mall-admin/category/addCategory.jsp">상품카테고리추가</a>
+		<a href="/mall-admin/category/addCategory.jsp" class="btn btn-outline-success" role="button">카테고리추가</a>
 	</div>
 	<%
 		CategoryDao categoryDao = new CategoryDao();
@@ -42,20 +42,17 @@
 				for(Category c :list){
 			%>
 				<tr>
-					<td><%=c.categoryId %></td>
-					<td><%=c.categoryName %></td>
-					<td><a href="" class="btn btn-success" role="button">수정</a>
-					<td><a href="/mall-admin/category/deleteAction.jsp?categoryId=<%=c.categoryId%>" class="btn btn-success" role="button">삭제</a>
+					<td><%=c.getCategoryId() %></td>
+					<td><%=c.getCategoryName() %></td>
 				</tr>
 			<% 							
 				}
 			%>
-				<tr>
-				<td><a href="/mall-admin/product/productList.jsp" class="btn btn-success" role="button">상품 관리 </a></td>
-				</tr>
 		</tbody>
-	
 </table>
+		<div align="right">
+			<a href="/mall-admin/product/productList.jsp" class="btn btn-outline-success" role="button">상품 관리 </a>
+		</div>			
 </div>
 </body>
 </html>

@@ -34,15 +34,15 @@ public class OrdersDao {
 			OrdersAndProduct oa = new OrdersAndProduct();
 			oa.orders = new Orders();
 			oa.product = new Product();
-			oa.orders.ordersId = rs.getInt("o.orders_id");
-			oa.orders.productId = rs.getInt("o.product_id");
-			oa.product.productName = rs.getString("p.product_name");
-			oa.orders.ordersPrice = rs.getInt("o.orders_price");
-			oa.orders.ordersAmount = rs.getInt("o.orders_amount");
-			oa.orders.memberEmail = rs.getString("o.member_email");
-			oa.orders.ordersAddr = rs.getString("o.orders_addr");
-			oa.orders.ordersState = rs.getString("o.orders_state");
-			oa.orders.ordersDate = rs.getString("o.orders_date");
+			oa.orders.setOrdersId(rs.getInt("o.orders_id"));
+			oa.orders.setProductId(rs.getInt("o.product_id"));
+			oa.product.setProductName(rs.getString("p.product_name"));
+			oa.orders.setOrdersPrice(rs.getInt("o.orders_price"));
+			oa.orders.setOrdersAmount(rs.getInt("o.orders_amount"));
+			oa.orders.setMemberEmail(rs.getString("o.member_email"));
+			oa.orders.setOrdersAddr(rs.getString("o.orders_addr"));
+			oa.orders.setOrdersState(rs.getString("o.orders_state"));
+			oa.orders.setOrdersDate(rs.getString("o.orders_date"));
 			list.add(oa);
 		}
 		conn.close();
@@ -61,14 +61,14 @@ public class OrdersDao {
 		
 		while(rs.next()) {
 			Orders o = new Orders();
-			o.ordersId = rs.getInt("orders_id");
-			o.productId = rs.getInt("product_id");
-			o.ordersPrice = rs.getInt("orders_price");
-			o.ordersAmount = rs.getInt("orders_amount");
-			o.memberEmail = rs.getString("member_email");
-			o.ordersAddr = rs.getString("orders_addr");
-			o.ordersState = ordersState;
-			o.ordersDate = rs.getString("orders_date");
+			o.setOrdersId(rs.getInt("orders_id"));
+			o.setProductId(rs.getInt("product_id"));
+			o.setOrdersPrice(rs.getInt("orders_price"));
+			o.setOrdersAmount(rs.getInt("orders_amount"));
+			o.setMemberEmail(rs.getString("member_email"));
+			o.setOrdersAddr(rs.getString("orders_addr"));
+			o.setOrdersState(ordersState);
+			o.setOrdersDate(rs.getString("orders_date"));
 			list.add(o);
 		}
 		conn.close();

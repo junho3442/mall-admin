@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%
 	session.invalidate();
-	response.sendRedirect("/mall/member/loginForm.jsp");
+	response.sendRedirect("/mall-admin/login.jsp");
 %>

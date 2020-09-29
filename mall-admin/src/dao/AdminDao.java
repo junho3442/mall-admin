@@ -10,12 +10,12 @@ public class AdminDao {
 		
 		String sql = "select admin_id from admin where admin_id=? and admin_pw=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setNString(1, admin.adminId);
-		stmt.setNString(2, admin.adminPw);
+		stmt.setString(1, admin.getAdminId());
+		stmt.setString(2, admin.getAdminPw());
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
 			returnAdmin = new Admin();
-			returnAdmin.adminId = rs.getString("admin_id");
+			returnAdmin.setAdminId(rs.getString("admin_id"));
 		}
 		return admin; // 값이 null이면 로그인 실패
 	}

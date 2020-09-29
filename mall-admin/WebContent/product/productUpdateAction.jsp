@@ -10,19 +10,24 @@
 	
 
 	
-	product.productName = request.getParameter("productName");
-	product.productPrice = Integer.parseInt(request.getParameter("productPrice"));
-	product.productContent = request.getParameter("productContent");
-	product.productId = Integer.parseInt(request.getParameter("productId"));
+	String productName = request.getParameter("productName");
+	int productPrice = Integer.parseInt(request.getParameter("productPrice"));
+	String productContent = request.getParameter("productContent");
+	int productId = Integer.parseInt(request.getParameter("productId"));
 	
-	System.out.println(product.productName);
-	System.out.println(product.productPrice);
-	System.out.println(product.productContent);
-	System.out.println(product.productId);
+	product.setProductName(productName);
+	product.setProductPrice(productPrice);
+	product.setProductContent(productContent);
+	product.setProductId(productId);
+	
+	System.out.println(product.getProductName());
+	System.out.println(product.getProductPrice());
+	System.out.println(product.getProductContent());
+	System.out.println(product.getProductId());
 	
 	ProductDao productDao = new ProductDao();
 	productDao.productUpdateOne(product);
 	
-	response.sendRedirect("/mall-admin/product/productOne.jsp?productId="+product.productId);
+	response.sendRedirect("/mall-admin/product/productOne.jsp?productId="+productId);
 	
 %>

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	if(session.getAttribute("loginAdminId") == null) {
+		response.sendRedirect("/mall-admin/login.jsp");
+		// session.getAttribute("loginAdminId") 세션에 만들어진 id
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>

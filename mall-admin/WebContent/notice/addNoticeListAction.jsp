@@ -5,8 +5,8 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	Notice notice = new Notice();
-	notice.noticeTitle = request.getParameter("noticeTitle");
-	notice.noticeContent = request.getParameter("noticeContent");
+	notice.setNoticeTitle(request.getParameter("noticeTitle"));
+	notice.setNoticeContent(request.getParameter("noticeContent"));
 	NoticeDao noticeDao = new NoticeDao();
 	noticeDao.insertNotice(notice);
 	response.sendRedirect("/mall-admin/notice/noticeList.jsp");

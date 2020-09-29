@@ -12,10 +12,10 @@ public class ProductDao {
 		Connection conn = dbUtil.getConnection();
 		String sql = "update product set product_name=?,product_price=?,product_content=? where product_id=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, product.productName);
-		stmt.setInt(2, product.productPrice);
-		stmt.setString(3, product.productContent);
-		stmt.setInt(4, product.productId);
+		stmt.setString(1, product.getProductName());
+		stmt.setInt(2, product.getProductPrice());
+		stmt.setString(3, product.getProductContent());
+		stmt.setInt(4, product.getProductId());
 		System.out.println(stmt+"------stmt");
 		stmt.executeQuery();
 		conn.close();
@@ -58,13 +58,13 @@ public class ProductDao {
 		
 		if(rs.next()) {
 			product = new Product();
-			product.productId = (rs.getInt("product_id"));
-			product.categoryId = (rs.getInt("category_id"));
-			product.productName = (rs.getString("product_name"));
-			product.productPrice = (rs.getInt("product_price"));
-			product.productContent = (rs.getString("product_content"));
-			product.productSoldout = (rs.getString("product_soldout"));
-			product.productPic = (rs.getString("product_pic"));
+			product.setProductId(rs.getInt("product_id"));
+			product.setCategoryId(rs.getInt("category_id"));
+			product.setProductName(rs.getString("product_name"));
+			product.setProductPrice(rs.getInt("product_price"));
+			product.setProductContent(rs.getString("product_content"));
+			product.setProductSoldout(rs.getString("product_soldout"));
+			product.setProductPic(rs.getString("product_pic"));
 		}
 		return product;
 	}
@@ -76,11 +76,11 @@ public class ProductDao {
 		String sql = "insert into product(category_id, product_name, product_price, product_content, product_soldout) value(?,?,?,?,?)";
 		
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, product.categoryId);
-		stmt.setString(2, product.productName);
-		stmt.setInt(3, product.productPrice);
-		stmt.setString(4, product.productContent);
-		stmt.setString(5, product.productSoldout);
+		stmt.setInt(1, product.getCategoryId());
+		stmt.setString(2, product.getProductName());
+		stmt.setInt(3, product.getProductPrice());
+		stmt.setString(4, product.getProductContent());
+		stmt.setString(5, product.getProductSoldout());
 		stmt.executeQuery();
 		
 	}
@@ -97,11 +97,11 @@ public class ProductDao {
 		
 		while(rs.next()) {
 			Product p = new Product(); // 객체 리스트 생성
-			p.productId = rs.getInt("product_id"); // p.(vo변수명) = rs.getInt(""); 
-			p.categoryId = rs.getInt("category_id");
-			p.productName = rs.getString("product_name");
-			p.productPrice = rs.getInt("product_price");
-			p.productSoldout = rs.getString("product_soldout");
+			p.setProductId(rs.getInt("product_id")); // p.(vo변수명) = rs.getInt(""); 
+			p.setCategoryId(rs.getInt("category_id"));
+			p.setProductName(rs.getString("product_name"));
+			p.setProductPrice(rs.getInt("product_price"));
+			p.setProductSoldout(rs.getString("product_soldout"));
 			
 			list.add(p);
 		}
@@ -119,11 +119,11 @@ public class ProductDao {
 		
 		while(rs.next()) {
 			Product p = new Product(); // 객체 리스트 생성
-			p.productId = rs.getInt("product_id"); // p.(vo변수명) = rs.getInt(""); 
-			p.categoryId = rs.getInt("category_id");
-			p.productName = rs.getString("product_name");
-			p.productPrice = rs.getInt("product_price");
-			p.productSoldout = rs.getString("product_soldout");
+			p.setProductId(rs.getInt("product_id")); // p.(vo변수명) = rs.getInt(""); 
+			p.setCategoryId(rs.getInt("category_id"));
+			p.setProductName(rs.getString("product_name"));
+			p.setProductPrice(rs.getInt("product_price"));
+			p.setProductSoldout(rs.getString("product_soldout"));
 			
 			list.add(p);
 		}

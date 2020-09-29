@@ -64,16 +64,16 @@
 				for(OrdersAndProduct oa :list){
 		%>
 				<tr>
-					<td><%=oa.orders.ordersId %></td>
-					<td><%=oa.orders.productId %></td>
-					<td><%=oa.product.productName %></td>
-					<td><%=oa.orders.ordersPrice %></td>
-					<td><%=oa.orders.ordersAmount %></td>
-					<td><%=oa.orders.memberEmail %></td>
-					<td><%=oa.orders.ordersAddr %></td>
-					<td><%=oa.orders.ordersState %></td>
-					<td><%=oa.orders.ordersDate %></td>
-					<td><a href="/mall-admin/orders/modifyOrdersState.jsp?ordersId=<%=oa.orders.ordersId%>">orders_state 수정</a>
+					<td><%=oa.orders.getOrdersId() %></td>
+					<td><%=oa.orders.getProductId() %></td>
+					<td><%=oa.product.getProductName() %></td>
+					<td><%=oa.orders.getOrdersPrice() %></td>
+					<td><%=oa.orders.getOrdersAmount() %></td>
+					<td><%=oa.orders.getMemberEmail() %></td>
+					<td><%=oa.orders.getOrdersAddr() %></td>
+					<td><%=oa.orders.getOrdersState() %></td>
+					<td><%=oa.orders.getOrdersDate() %></td>
+					<td><a href="/mall-admin/orders/modifyOrdersState.jsp?ordersId=<%=oa.orders.getOrdersId()%>">orders_state 수정</a>
 					</td>
 				</tr>
 		<% 

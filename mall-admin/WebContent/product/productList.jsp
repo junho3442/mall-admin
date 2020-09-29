@@ -4,6 +4,14 @@
     <%@ page import = "dao.*" %>
     <%@ page import = "java.sql.*" %>
     <%@ page import = "java.util.*" %>
+    
+    <%
+	if(session.getAttribute("loginAdminId") == null) {
+		response.sendRedirect("/mall-admin/login.jsp");
+		// session.getAttribute("loginAdminId") 세션에 만들어진 id
+		return;
+	}
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,8 +47,8 @@
 		<%
 			for(Category c : categoryList){
 		%>
-			<a href = "/mall-admin/product/productList.jsp?categoryId=<%=c.categoryId %>" class="btn btn-outline-dark" role="button">
-			<%=c.categoryName %>
+			<a href = "/mall-admin/product/productList.jsp?categoryId=<%=c.getCategoryId() %>" class="btn btn-outline-dark" role="button">
+			<%=c.getCategoryName() %>
 			</a>
 		<% 
 			} 
@@ -63,13 +71,13 @@
 		<tbody>
 			<%
 				for(Product p : productList){
-					if(p.productSoldout.equals("Y")){
+					if(p.getProductSoldout().equals("Y")){
 			%>
 					<tr>
-					<td><a href="/mall-admin/product/productOne.jsp?productId=<%=p.productId%>"><%=p.productId %></a></td>
-					<td><%=p.categoryId %></td>
-					<td><%=p.productName %></td>
-					<td><%=p.productPrice %></td>
+					<td><a href="/mall-admin/product/productOne.jsp?productId=<%=p.getProductId() %>"><%=p.getProductId() %></a></td>
+					<td><%=p.getCategoryId() %></td>
+					<td><%=p.getProductName() %></td>
+					<td><%=p.getProductPrice() %></td>
 					<td>품절</td>
 				</tr>
 			<% 			
@@ -77,11 +85,11 @@
 					}else{
 			%>
 						<tr>
-							<td><a href="/mall-admin/product/productOne.jsp?productId=<%=p.productId%>"><%=p.productId %></a></td>
-							<td><%=p.categoryId %></td>
-							<td><%=p.productName %></td>
-							<td><%=p.productPrice %></td>
-							<td><%=p.productSoldout %></td>
+							<td><a href="/mall-admin/product/productOne.jsp?productId=<%=p.getProductId() %>"><%=p.getProductId() %></a></td>
+							<td><%=p.getCategoryId() %></td>
+							<td><%=p.getProductName() %></td>
+							<td><%=p.getProductPrice() %></td>
+							<td><%=p.getProductSoldout() %></td>
 						</tr>
 			<%	
 						

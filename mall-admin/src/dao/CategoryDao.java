@@ -11,7 +11,7 @@ public class CategoryDao {
 		
 		String sql = "insert into category(category_name) value(?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, category.categoryName);
+		stmt.setString(1, category.getCategoryName());
 	
 		stmt.executeLargeUpdate();
 		conn.close();
@@ -31,8 +31,8 @@ public class CategoryDao {
 		                                                                                                                           
 		while(rs.next()) {
 			Category category = new Category();
-			category.categoryId = rs.getInt("category_id");
-			category.categoryName = rs.getString("category_name");
+			category.setCategoryId(rs.getInt("category_id"));
+			category.setCategoryName(rs.getString("category_name"));
 			list.add(category);
 		}
 		conn.close();

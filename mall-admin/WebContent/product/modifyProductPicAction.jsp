@@ -29,12 +29,12 @@
 	Product product = new Product();
 	ProductDao productDao = new ProductDao();
 	
-	product.productId = productId;
-	product.productPic = productPic;
+	product.setProductId(productId);
+	product.setProductPic(productPic);
 	
 	//update product set product_pic=? where product_id=?
 	productDao.productUpdatePic(productId,productPic);
 	
-	response.sendRedirect(request.getContextPath()+"/product/productOne.jsp?productId="+product.productId);
+	response.sendRedirect(request.getContextPath()+"/product/productOne.jsp?productId="+productId);
 	
 %>
